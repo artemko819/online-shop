@@ -1,0 +1,66 @@
+<nav
+  class="bg-gray-800 flex-1 flex items-center justify-center sm:items-stretch sm:justify-start pl-5"
+>
+  <div class="flex-shrink-0 flex items-center space-between">
+    <a routerLink="/">
+      <img
+        class="block lg:hidden h-8 w-auto"
+        src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+        alt="Workflow"
+    /></a>
+    <a routerLink="/">
+      <img
+        class="hidden lg:block h-8 w-auto"
+        src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+        alt="Workflow"
+    /></a>
+  </div>
+  <ul
+    class="flex space-x-4 p-5"
+    *ngIf="authSetvice.isAuthenticated(); else login"
+  >
+    <li routerLinkActive="active">
+      <a
+        routerLink="/admin/dashboard"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        >Dashboard</a
+      >
+    </li>
+    <li routerLinkActive="active">
+      <a
+        routerLink="/admin/add"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        >Add Product</a
+      >
+    </li>
+    <li routerLinkActive="active">
+      <a
+        routerLink="/admin/orders"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        >Orders</a
+      >
+    </li>
+    <li routerLinkActive="active">
+      <a
+        href="#"
+        (click)="logout($event)"
+        class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+        >Logout</a
+      >
+    </li>
+  </ul>
+  <ng-template #login>
+    <ul class="flex space-x-4 p-5">
+      <li routerLinkActive="active">
+        <a
+          routerLink="/admin/login"
+          class="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+          >Login</a
+        >
+      </li>
+    </ul>
+  </ng-template>
+</nav>
+<div class="container mx-auto">
+  <router-outlet></router-outlet>
+</div>
